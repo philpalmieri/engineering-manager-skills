@@ -26,7 +26,7 @@ Automate the sprint lifecycle on GitHub Projects. Handles creating iterations, r
 
 ### Start Sprint
 
-Triggered by: "start sprint", "kick off next sprint", "new sprint"
+Triggered by: "start sprint", "start next sprint", "kick off next sprint", "new sprint"
 
 #### Step 1: Detect sprint state
 
@@ -40,15 +40,37 @@ Identify:
 - Next iteration (if it already exists)
 - Whether there's a gap or overlap
 
-If the next iteration doesn't exist yet, create it:
+If the next iteration doesn't exist yet, create one. GitHub Projects auto-creates iterations with auto-incremented names that are often wrong (e.g., "Iteration 47" instead of "Sprint 15").
+
+#### Step 2: Fix iteration naming
+
+GitHub Projects auto-increments iteration names using an internal counter that doesn't match the team's sprint numbering. After creating or finding the next iteration:
+
+1. **Read the current/last sprint name** to determine the naming convention (e.g., "Sprint 14", "S14", "2026-05 Sprint 2")
+2. **Calculate the correct next name** by incrementing the number from the current sprint
+3. **Rename the iteration** via the API:
+
 ```bash
-gh project field-create {project-number} --owner {org} \
-  --name "Sprint [N+1]" --data-type ITERATION
+# Update iteration name via GraphQL
+gh api graphql -f query='
+  mutation {
+    updateProjectV2IterationField(input: {
+      projectId: "{project-node-id}"
+      fieldId: "{iteration-field-id}"
+      iterationId: "{iteration-id}"
+      title: "Sprint {N+1}"
+      startDate: "{start-date}"
+      duration: {days}
+    }) {
+      projectV2IterationField { id }
+    }
+  }
+'
 ```
 
-If using the GitHub Projects iteration field (which auto-creates iterations based on duration), just identify which iteration is "next."
+**Always verify the name is correct before proceeding.** Present to the user: "Next sprint will be 'Sprint 15' (May 19 → Jun 1). Correct?"
 
-#### Step 2: Roll over incomplete items
+#### Step 3: Roll over incomplete items
 
 Find items from the previous sprint that aren't done:
 
@@ -70,7 +92,7 @@ For each incomplete item:
    ```
 3. **Track the rollover** for the summary
 
-#### Step 3: Set sprint goals
+#### Step 4: Set sprint goals
 
 Ask the user what the sprint goals are, or detect them from:
 - Issues labeled with initiative/epic labels assigned to the new sprint
@@ -99,7 +121,7 @@ Sprint goals (epics with items in this sprint):
 
 Ask: "Does this look right? Anything to add, remove, or re-prioritize?"
 
-#### Step 4: Confirm and save
+#### Step 5: Confirm and save
 
 After user confirmation:
 - Ensure all items have correct iteration assignment

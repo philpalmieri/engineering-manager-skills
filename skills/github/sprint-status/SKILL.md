@@ -12,7 +12,9 @@ Analyze the current sprint against its goals. Goes beyond "what's in progress" t
 
 ## When to use
 
-- "How's the sprint going?", "sprint status", "sprint health check"
+- **"What is the current sprint?"** — Quick summary: name, dates, issue counts, goals, on track/at risk
+- **"Get sprint breakdown"** — Full analysis: goal-by-goal status, PR readiness, comment signals, risk assessment
+- **"Update sprint status"** — Generate a copyable status update to paste into the project board's status/notes field
 - Before backlog refinement or team check-ins
 - Mid-sprint risk assessment
 - As input for weekly snippets
@@ -24,7 +26,75 @@ Analyze the current sprint against its goals. Goes beyond "what's in progress" t
 - GitHub CLI (`gh`) authenticated with org and project access
 - Team roster (`team.json`) for mapping assignees
 
-## Process
+## Modes
+
+This skill operates in three modes depending on what the user asks for. All three share Steps 1-2 (identify sprint, fetch items). They diverge after that.
+
+### Mode 1: Current Sprint (Quick Summary)
+
+Triggered by: "what is the current sprint?", "current sprint", "where are we?"
+
+A fast, lightweight answer. No deep analysis. Just the facts.
+
+**Output:**
+```markdown
+## Sprint [Name] ([Start] → [End], [N] days remaining)
+
+**Goals:**
+1. [Epic/Initiative title] — [X/Y] issues done
+2. [Epic/Initiative title] — [X/Y] issues done
+
+**Counts:** [Done] completed, [In Progress] in progress, [Todo] not started, [Total] total
+
+**Status:** [On Track / At Risk / Behind] — [one-sentence justification based on completion % vs. time elapsed]
+```
+
+The on-track/at-risk assessment here is real, not a label someone set on the board. Compare completion percentage against time elapsed: if 30% done with 20% time remaining, that's at risk.
+
+After the quick summary, skip to Step 7 (present to user).
+
+### Mode 2: Sprint Breakdown (Full Analysis)
+
+Triggered by: "get sprint breakdown", "sprint breakdown", "sprint health check", "how's the sprint going?"
+
+This is the full analysis. Run all steps (1-7) as documented below.
+
+### Mode 3: Update Sprint Status (Pasteable Note)
+
+Triggered by: "update sprint status", "write sprint update", "sprint status note"
+
+Generate a concise, pasteable status update designed to be added to the project board's status/notes field. This is what the user posts for async visibility.
+
+**Process:**
+1. Run Steps 1-5 (identify sprint, fetch items, group by goal, analyze signals, assess confidence)
+2. Read any existing status notes/updates on the project board to understand the update cadence and voice
+3. Generate the update in this format:
+
+```markdown
+**Sprint [Name] Update — [Date]**
+
+[1-2 sentence overall status. Direct and honest.]
+
+**Goals:**
+- ✅ [Goal 1]: [one-line status, what shipped]
+- ⚠️ [Goal 2]: [one-line status, what's at risk and why]
+- 🔄 [Goal 3]: [one-line status, in progress]
+
+**Risks:**
+- [Risk 1 with context, not just "at risk"]
+
+**Wins:**
+- [Notable completions this sprint]
+
+**Next up:**
+- [What's being worked on in the remaining days]
+```
+
+Present this as a copyable block. The user will paste it into the project board.
+
+---
+
+## Process (Full Breakdown)
 
 ### Step 1: Identify the current sprint
 
