@@ -4,65 +4,114 @@ A collection of reusable [Copilot CLI skills](https://docs.github.com/en/copilot
 
 These skills are composable, generic, and contain no personal or organizational data. They assume you bring your own vault, your own team roster, and your own GitHub access.
 
-## Installation
+## Getting Started
 
-### Option 1: Ask Copilot to install it
+### 1. Install the skills
 
-Already running Copilot CLI? Just ask:
+**Easiest:** Ask Copilot CLI directly:
 
 > install skills from philpalmieri/engineering-manager-skills
 
-Copilot will clone the repo and symlink all skills into `~/.copilot/skills/` for you.
+**Manual:** Clone and symlink:
+
+```bash
+gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
+
+for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
+  ln -sf "$skill" ~/.copilot/skills/$(basename "$skill")
+done
+```
+
+### 2. Configure your team
+
+Run the setup skill to create your `team.json`:
+
+```
+> setup my team config
+```
+
+This walks you through adding your org, team members, vault path, and project board. The resulting `team.json` is what every other skill reads from. See `team.json.example` for the full schema.
+
+### 3. Pull your first data
+
+```
+> sync my team data
+```
+
+This fetches the current and previous month of GitHub activity (PRs, reviews, issues) for everyone on your team and enriches PRs with review detail. Takes 1-3 minutes depending on team size.
+
+### 4. Try it out
+
+Here's a typical first-day flow:
+
+```
+> prep my day                     # reads today's schedule, preps all 1:1s, sets priorities
+> how's the team doing?           # runs team-health-report with current data
+> review network for last month   # shows who's reviewing whom
+> prep my snippet                 # drafts your weekly status update
+```
+
+### 5. Build up data over time
+
+The longer you use it, the more useful metrics become. After a month of data, you get trend lines. After a quarter, you can run review cards and 9-box assessments:
+
+```
+> sync last quarter
+> generate review cards for Q3
+> do 9-box for the team
+```
+
+---
+
+## Installation Options
+
+### Option 1: Ask Copilot
+
+> install skills from philpalmieri/engineering-manager-skills
 
 ### Option 2: Clone and symlink
 
 ```bash
 gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
 
-# Symlink all skills into your Copilot skills directory
 for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
   ln -sf "$skill" ~/.copilot/skills/$(basename "$skill")
 done
 ```
 
-### Option 3: Install individual skills
+### Option 3: Individual skills only
 
 ```bash
-# Clone the repo, then copy just the skills you want
+# Copy just what you need
 cp -r skills/management/direct-report-prep ~/.copilot/skills/direct-report-prep
 cp -r skills/orchestration/prep-my-day ~/.copilot/skills/prep-my-day
 ```
 
-### Option 4: Use as a repo-level skillset
+### Option 4: Repo-level loading
 
-The repo includes a `.copilot/skills` symlink that points to `../skills`. If you clone this repo into your workspace, Copilot CLI will load the skills automatically when you work in that directory.
+The repo includes a `.copilot/skills` symlink. Clone it into your workspace and skills load automatically when you `cd` into the directory.
 
 ```bash
 gh repo clone philpalmieri/engineering-manager-skills
 cd engineering-manager-skills
-# Skills are available via .copilot/skills symlink
 ```
 
-### First run
+## Skills Catalog
 
-After installing, run the **setup** skill to create your `team.json`:
-```
-> setup my team config
-```
+28 skills across 6 categories. Each category has its own README with detailed documentation, prerequisites, and usage examples.
 
-This walks you through creating the config file all other skills depend on. See `team.json.example` for the full schema.
-
-## What's in here
-
-### Obsidian Skills (`skills/obsidian/`)
-Atomic operations for managing an Obsidian vault as an EM's daily operating system.
+### [Obsidian Skills](skills/obsidian/) (`skills/obsidian/`)
+Atomic vault operations: task movement, daily notes, people file management.
 
 | Skill | Description |
 |-------|-------------|
-| `task-rollover` | Move open tasks from previous dailies to today's note (mark source as forwarded) |
+| `task-rollover` | Move open tasks from previous dailies to today (mark source as forwarded) |
+| `daily-note` | *(Planned)* Create and structure today's daily note |
+| `people-file` | *(Planned)* Manage Person files and entries |
+| `vault-search` | *(Planned)* Search vault for tagged items and open tasks |
 
-### GitHub Skills (`skills/github/`)
-Team data fetching and analysis via the `gh` CLI.
+### [GitHub Skills](skills/github/) (`skills/github/`)
+Data pipeline: fetch, enrich, and sync team activity from GitHub.
 
 | Skill | Description |
 |-------|-------------|
@@ -75,8 +124,8 @@ Team data fetching and analysis via the `gh` CLI.
 | `epic-cleanup` | Audit active epics for ownership gaps and closure candidates |
 | `epic-overview` | Grouped overview of all active epics by strategic objective |
 
-### Management Skills (`skills/management/`)
-Higher-level workflows that compose Obsidian + GitHub skills.
+### [Management Skills](skills/management/) (`skills/management/`)
+Day-to-day EM workflows: 1:1 prep, status reporting, hiring, prioritization.
 
 | Skill | Description |
 |-------|-------------|
@@ -89,8 +138,8 @@ Higher-level workflows that compose Obsidian + GitHub skills.
 | `interview-prep` | Generate resume-specific behavioral interview scripts |
 | `interview-analysis` | Clean up raw interview notes into structured summaries |
 
-### Technical Skills (`skills/technical/`)
-Research and documentation generation.
+### [Technical Skills](skills/technical/) (`skills/technical/`)
+Research and documentation for technical projects and initiatives.
 
 | Skill | Description |
 |-------|-------------|
@@ -98,8 +147,8 @@ Research and documentation generation.
 | `technical-deep-dive` | Codebase analysis and architecture review |
 | `initiative-breakdown` | Deep-dive breakdown of a GitHub initiative or epic |
 
-### Metrics Skills (`skills/metrics/`)
-Data-driven team health analysis and visualization.
+### [Metrics Skills](skills/metrics/) (`skills/metrics/`)
+Data-driven team health: collaboration patterns, velocity, talent assessment.
 
 | Skill | Description |
 |-------|-------------|
@@ -111,8 +160,8 @@ Data-driven team health analysis and visualization.
 | `nine-box` | 9-box talent grid (performance vs growth trajectory) |
 | `team-health-report` | Orchestration: runs all metrics, produces unified dashboard |
 
-### Orchestration Skills (`skills/orchestration/`)
-Chain multiple skills into end-to-end workflows.
+### [Orchestration Skills](skills/orchestration/) (`skills/orchestration/`)
+End-to-end workflows that chain multiple skills together.
 
 | Skill | Description |
 |-------|-------------|
@@ -122,14 +171,11 @@ Chain multiple skills into end-to-end workflows.
 
 All skills reference a `team.json` file for org-specific config. This keeps skills generic and publishable while your actual team data stays private.
 
-### Quick start
-
 ```bash
-cp team.json.example team.json
-# Edit with your actual team data
+cp team.json.example team.json   # then edit with your real data
+# — or —
+> setup my team config            # interactive setup via Copilot
 ```
-
-### Key config sections
 
 | Section | Purpose |
 |---------|---------|
@@ -139,6 +185,7 @@ cp team.json.example team.json
 | `discussion_sources` | Repos with engineering discussions to monitor |
 | `snippet` | Weekly snippet config: output dirs, key projects, noise labels |
 | `fiscal_year` | Quarter-to-month mapping |
+| `vault_path` | Absolute path to your Obsidian vault |
 | `members` | Direct reports with GitHub logins and vault file names |
 | `collaborators` | Peers, manager, skip-levels |
 
@@ -146,29 +193,43 @@ See `team.json.example` for the complete schema with all fields documented.
 
 ## Prerequisites
 
-- [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) installed
+- [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) installed and working
 - [GitHub CLI (`gh`)](https://cli.github.com/) authenticated with access to your org
-- An Obsidian vault (any structure; see `examples/vault-structure.md` for conventions)
+- An [Obsidian](https://obsidian.md/) vault with daily notes and people files
 - A `team.json` config file (run the setup skill or copy the example)
 
-## Composability
+## Architecture
 
-Skills are designed to be chained. The orchestration skills call atomic skills in sequence:
+Skills are layered and composable:
 
 ```
-prep-my-day
-  ├── task-rollover        (move yesterday's open tasks, mark as forwarded)
-  ├── direct-report-prep   (for each direct 1:1 on the schedule)
-  ├── peer-prep            (for each peer 1:1 on the schedule)
-  ├── discussion-scan      (check engineering discussions for relevant posts)
-  └── today-priorities     (scan and tag priorities with #today)
+┌─────────────────────────────────────────────────────────┐
+│  Orchestration       prep-my-day, team-health-report    │
+├─────────────────────────────────────────────────────────┤
+│  Management          1:1 prep, snippets, interviews     │
+│  Technical           product briefs, deep dives         │
+│  Metrics             review network, velocity, 9-box    │
+├─────────────────────────────────────────────────────────┤
+│  GitHub (data)       team-activity, enrich-prs, sync    │
+│  Obsidian (vault)    task-rollover, vault operations    │
+├─────────────────────────────────────────────────────────┤
+│  Config              team.json                          │
+└─────────────────────────────────────────────────────────┘
 ```
 
-You can also invoke any skill independently.
+**Data flow:**
+```
+gh CLI → team-activity → data/YYYY-MM/*.json → enrich-prs → data/enrichment/*.json
+                                    ↓
+                    metrics skills → reports/metrics/*.md
+                    management skills → vault People files
+                    orchestration → chains it all together
+```
 
 ## Privacy
 
-- `team.json` is gitignored by default (contains real names/logins)
+- `team.json` is gitignored (contains real names/logins)
+- `data/` is gitignored (contains fetched GitHub activity)
 - Skills contain zero personal or organizational data
 - All org-specific config lives exclusively in `team.json`
 
@@ -179,6 +240,8 @@ Skills should be:
 - **Atomic** — do one thing well (orchestration skills can compose them)
 - **Documented** — clear SKILL.md with triggers, process, and output format
 - **Config-driven** — reference `team.json` for anything org-specific
+
+Each skill category has its own README with conventions and examples.
 
 ## License
 
