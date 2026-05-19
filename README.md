@@ -96,6 +96,19 @@ Research and documentation generation.
 | `technical-deep-dive` | Codebase analysis and architecture review |
 | `initiative-breakdown` | Deep-dive breakdown of a GitHub initiative or epic |
 
+### Metrics Skills (`skills/metrics/`)
+Data-driven team health analysis and visualization.
+
+| Skill | Description |
+|-------|-------------|
+| `review-network` | Who reviews whom: network density, reciprocity, silo detection |
+| `review-cycles` | PR feedback rounds before merge, per person and trending |
+| `project-people-map` | Project ↔ people heatmap, bus factor, silo alerts |
+| `contribution-velocity` | Time-to-merge, throughput, review responsiveness |
+| `review-cards` | Quarterly grade cards per person (level-adjusted) |
+| `nine-box` | 9-box talent grid (performance vs growth trajectory) |
+| `team-health-report` | Orchestration: runs all metrics, produces unified dashboard |
+
 ### Orchestration Skills (`skills/orchestration/`)
 Chain multiple skills into end-to-end workflows.
 
