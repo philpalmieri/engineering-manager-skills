@@ -109,18 +109,14 @@ End-to-end workflows that chain multiple skills together.
 
 ### 1. Install the skills
 
-**Easiest:** Ask Copilot CLI directly:
+```bash
+gh skill install philpalmieri/engineering-manager-skills
+```
 
-> install skills from philpalmieri/engineering-manager-skills
-
-**Manual:** Clone and symlink:
+This installs all 29 skills. To pin to a specific release:
 
 ```bash
-gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
-
-for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
-  ln -sf "$skill" ~/.copilot/skills/$(basename "$skill")
-done
+gh skill install philpalmieri/engineering-manager-skills --pin v1.0.0
 ```
 
 ### 2. Configure your team
@@ -166,36 +162,27 @@ The longer you use it, the more useful metrics become. After a month of data, yo
 
 ## Installation Options
 
-### Option 1: Ask Copilot
-
-> install skills from philpalmieri/engineering-manager-skills
-
-### Option 2: Clone and symlink
+### Option 1: gh skill install (recommended)
 
 ```bash
-gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
-
-for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
-  ln -sf "$skill" ~/.copilot/skills/$(basename "$skill")
-done
+gh skill install philpalmieri/engineering-manager-skills
 ```
 
-### Option 3: Individual skills only
+### Option 2: Individual skills only
 
 ```bash
-# Copy just what you need
-cp -r skills/management/direct-report-prep ~/.copilot/skills/direct-report-prep
-cp -r skills/orchestration/prep-my-day ~/.copilot/skills/prep-my-day
+gh skill install philpalmieri/engineering-manager-skills direct-report-prep
+gh skill install philpalmieri/engineering-manager-skills prep-my-day
 ```
 
-### Option 4: Repo-level loading
-
-The repo includes a `.copilot/skills` symlink. Clone it into your workspace and skills load automatically when you `cd` into the directory.
+### Option 3: Clone for development
 
 ```bash
 gh repo clone philpalmieri/engineering-manager-skills
 cd engineering-manager-skills
 ```
+
+The repo includes a `.copilot/skills` directory, so skills load automatically when you work in this directory.
 
 ## Configuration
 
