@@ -9,25 +9,30 @@ These skills are composable, generic, and contain no personal or organizational 
 ### Option 1: Clone and symlink (recommended)
 
 ```bash
-git clone https://github.com/YOUR_USER/engineering-manager-skills.git ~/Dev/engineering-manager-skills
+gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
 
-# Symlink into your Copilot skills directory
-ln -sf ~/Dev/engineering-manager-skills/skills/*/* ~/.copilot/skills/
+# Symlink all skills into your Copilot skills directory
+for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
+  ln -sf "$skill" ~/.copilot/skills/$(basename "$skill")
+done
 ```
 
 ### Option 2: Install individual skills
 
 ```bash
-# Copy a single skill
+# Clone the repo, then copy just the skills you want
 cp -r skills/management/direct-report-prep ~/.copilot/skills/direct-report-prep
+cp -r skills/orchestration/prep-my-day ~/.copilot/skills/prep-my-day
 ```
 
 ### Option 3: Use as a repo-level skillset
 
-Clone into your project and reference via `.copilot/skills` symlink:
+The repo includes a `.copilot/skills` symlink that points to `../skills`. If you clone this repo into your workspace, Copilot CLI will load the skills automatically when you work in that directory.
+
 ```bash
-# The repo already includes .copilot/skills → ../skills
-# Just clone into your project or alongside your working directory
+gh repo clone philpalmieri/engineering-manager-skills
+cd engineering-manager-skills
+# Skills are available via .copilot/skills symlink
 ```
 
 ### First run
