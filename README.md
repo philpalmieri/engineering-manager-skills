@@ -67,6 +67,8 @@ Team data fetching and analysis via the `gh` CLI.
 | Skill | Description |
 |-------|-------------|
 | `team-activity` | Fetch PRs, reviews, and issues for team members |
+| `enrich-prs` | Fetch per-PR review detail (rounds, dismissals, reviewer actions) |
+| `team-data-sync` | Smart sync: detect stale/missing data, fetch delta, enrich new PRs |
 | `sprint-status` | Query project boards for sprint progress and health |
 | `sprint-management` | Automate sprint lifecycle (start, end, rollover) |
 | `oncall-review` | Assess on-call shift quality from issue engagement |
