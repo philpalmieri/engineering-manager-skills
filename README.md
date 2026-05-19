@@ -4,6 +4,23 @@ A collection of reusable [Copilot CLI skills](https://docs.github.com/en/copilot
 
 These skills are composable, generic, and contain no personal or organizational data. They assume you bring your own vault, your own team roster, and your own GitHub access.
 
+## How It Works
+
+You talk to Copilot like you'd talk to a chief of staff:
+
+```
+> sync my team data
+> prep my day
+> how's the team doing?
+> prep 1:1 with Sam
+> show me the review network for last quarter
+> write my weekly snippet
+> who's siloed on what projects?
+> generate review cards for Q3
+```
+
+Behind each prompt is a skill that knows where to look, what to fetch, and how to format the output. Skills pull from GitHub (PRs, reviews, issues, sprints), your Obsidian vault (daily notes, people files, open tasks), and a local `team.json` config. No new apps, no dashboards to check, no manual data entry. Just conversation.
+
 ## What's Included
 
 28 skills across 6 categories. Each category has its own README with detailed documentation, prerequisites, and usage examples.
