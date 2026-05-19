@@ -62,12 +62,22 @@ gh search prs --author={login} --owner={org} --merged={start}..{end} --json numb
 
 **Closed issues (excluding noise):**
 ```bash
-gh search issues --repo={org}/{team-repo} --state=closed --closed={start}..{end} --json number,title,labels,assignees --limit 50
+gh search issues --repo={team_repo} --state=closed --closed={start}..{end} --json number,title,labels,assignees --limit 50
 ```
 
-Filter out noise (automated issues, monitoring labels, bot-created items) based on team conventions.
+Filter out noise using the `snippet.noise_labels` list from the team config. Use `snippet.incident_labels` to identify incident issues separately.
 
 **Cap detection:** If any query returns exactly 50 or 100 results, the API likely capped. Split the date range in half and re-query to get complete data.
+
+### Step 3b: Check project board for sprint context
+
+If the team config has a `project_number`, check the project board for recent sprint status updates. This helps contextualize wins by sprint goals and flags planned upcoming work.
+
+```bash
+gh project view {project_number} --owner {org} --format json
+```
+
+Look for recent status updates on the Sprint Progress view. Use sprint goals to group wins and frame upcoming work.
 
 ### Step 4: Cross-reference with last week
 
@@ -146,3 +156,5 @@ description includes #snippetIdea
 - **Incidents only if they happened.** Omit the section entirely if no incidents fired.
 - **Link everything.** Every project reference should have an issue/PR link for context.
 - **Date range matters.** The snippet covers Monday through today. Don't pull in work from before Monday unless it's a carryover from last week's Upcoming.
+- **Key project matching:** If the team config has a `snippet.key_projects` array, use the keywords to match PRs/issues to known projects and group them under those headings. This ensures recurring workstreams are tracked consistently.
+- **Source links:** When a section was informed by a `#snippetIdea` bullet or other tagged item, add a `from [[Source/File]]` line below it. If multiple sources inform one section, combine: `from [[Dailies/2026-05-08]], [[People/Jane]], [[Projects/API Redesign]]`. These links let the user jump to context and signal which items to finalize after review.

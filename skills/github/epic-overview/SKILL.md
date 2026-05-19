@@ -56,8 +56,8 @@ Create logical groupings that represent strategic objectives or project areas. E
 - A 1-2 sentence description of what the objective is
 
 Common grouping patterns:
-- Product feature area (e.g., "Releases & Immutable Releases")
-- Customer integration (e.g., "MDC / Virtual Registry")
+- Product feature area (e.g., "Releases & Immutability")
+- Customer integration (e.g., "Partner Integration / Virtual Registry")
 - Infrastructure domain (e.g., "Signing Infrastructure")
 - Operational category (e.g., "Maintenance & Reliability")
 

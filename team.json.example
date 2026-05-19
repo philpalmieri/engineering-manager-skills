@@ -1,0 +1,76 @@
+{
+  "org": "acme-corp",
+  "project_number": 1234,
+  "team_repo": "acme-corp/platform",
+  "discussion_sources": [
+    "acme-corp/engineering"
+  ],
+  "snippet": {
+    "output_dir": "Projects/Snippets/",
+    "archive_dir": "Archive/Projects/Snippets/",
+    "noise_labels": ["oncall", "automated"],
+    "incident_labels": ["incident", "sev1"],
+    "key_projects": [
+      { "name": "API Redesign", "keywords": ["api-v2", "graphql", "rest-deprecation"], "issue": 42 },
+      { "name": "Infrastructure Migration", "keywords": ["terraform", "k8s", "migration"] },
+      { "name": "Auth Overhaul", "keywords": ["auth", "oauth", "sso", "jwt"] }
+    ]
+  },
+  "vault_path": "~/Documents/Obsidian/workvault",
+  "fiscal_year": {
+    "q1": ["Jan", "Feb", "Mar"],
+    "q2": ["Apr", "May", "Jun"],
+    "q3": ["Jul", "Aug", "Sep"],
+    "q4": ["Oct", "Nov", "Dec"]
+  },
+  "members": [
+    {
+      "login": "janedoe",
+      "name": "Jane Doe",
+      "pronouns": "she/her",
+      "joined": "2023-06",
+      "level": "Senior",
+      "relationship": "direct",
+      "vault_name": "Jane"
+    },
+    {
+      "login": "bsmith",
+      "name": "Bob Smith",
+      "pronouns": "he/him",
+      "joined": "2024-01",
+      "level": "Mid",
+      "relationship": "direct",
+      "vault_name": "Bob"
+    },
+    {
+      "login": "agarcia",
+      "name": "Alex Garcia",
+      "pronouns": "they/them",
+      "joined": "2022-03",
+      "level": "Staff",
+      "relationship": "direct",
+      "vault_name": "Alex"
+    }
+  ],
+  "collaborators": [
+    {
+      "name": "Pat Manager",
+      "relationship": "manager",
+      "vault_name": "Pat"
+    },
+    {
+      "name": "Sam PM",
+      "login": "sampm",
+      "relationship": "peer",
+      "vault_name": "Sam",
+      "role": "Product Manager"
+    },
+    {
+      "name": "Taylor Kim",
+      "login": "taylork",
+      "relationship": "peer",
+      "vault_name": "Taylor",
+      "role": "Staff Engineer"
+    }
+  ]
+}

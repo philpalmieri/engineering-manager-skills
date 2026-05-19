@@ -73,6 +73,8 @@ Instead focus on:
 
 **Strategic topics** — Bigger-picture items: roadmap, cross-team dynamics, organizational context.
 
+**Reflections/feedback season** — If it's feedback season, consider whether there are themes to discuss conversationally (but only if the user has flagged this or it's contextually relevant).
+
 ### Step 4: Write to People file
 
 Same format and rules as direct-report-prep:

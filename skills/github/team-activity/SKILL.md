@@ -86,12 +86,12 @@ Each file is a JSON array of the raw results from `gh`.
 ### Step 6: Report summary
 
 ```
-Fetched data for 7 members (2026-05-01 to 2026-05-14):
-  ajbeattie: 3 PRs, 5 reviews, 2 issues
-  bdehamer: 8 PRs, 12 reviews, 4 issues
-  ...
-  Total: 45 PRs, 62 reviews, 18 issues
-  ⚠️ Cap hit on bdehamer reviews (split and re-fetched)
+Fetched data for 3 members (2026-05-01 to 2026-05-14):
+  janedoe: 3 PRs, 5 reviews, 2 issues
+  bsmith: 8 PRs, 12 reviews, 4 issues
+  agarcia: 6 PRs, 9 reviews, 3 issues
+  Total: 17 PRs, 26 reviews, 8 issues
+  ⚠️ Cap hit on bsmith reviews (split and re-fetched)
 ```
 
 ## Rules

@@ -13,7 +13,7 @@ Generate a product-oriented summary of a project or initiative. Designed to give
 
 ## When to use
 
-- "Write a product brief for [project]", "summarize [project] for Rohan", "create a project overview"
+- "Write a product brief for [project]", "summarize [project] for my PM", "create a project overview"
 - When onboarding a PM or stakeholder to an existing initiative
 - When you need a shareable doc that explains a project beyond the engineering details
 

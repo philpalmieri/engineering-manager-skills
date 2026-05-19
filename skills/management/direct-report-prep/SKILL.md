@@ -37,6 +37,7 @@ Prepare talking points for a 1:1 with a direct report. Combines GitHub activity 
   - Recent 1:1 notes and recurring themes
   - Items tagged `#feedback` or `#followup`
   - Stale items (open tasks with dates older than 2 weeks)
+  - Items with `⏫` or `📅` markers (high priority or time-sensitive)
 
 **From GitHub (last 7 days):**
 ```bash

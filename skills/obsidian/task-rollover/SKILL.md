@@ -8,7 +8,7 @@ description: |-
 
 # Task Rollover
 
-Move all open tasks (`- [ ]`) from previous daily notes into today's daily note, then remove them from the source. This prevents duplicate tasks across multiple dailies.
+Move all open tasks (`- [ ]`) from previous daily notes into today's daily note, then mark them as forwarded in the source. This prevents duplicate tasks across multiple dailies.
 
 ## When to use
 
@@ -55,9 +55,23 @@ For each standalone open task:
 
 ### Step 4: Write to today's daily
 
-Add a `### 📥 Moved Open Tasks` section to today's daily note (before the Priority Focus section if one exists).
+Add rolled-over tasks to today's daily note (before the Priority Focus section if one exists). Use two sections:
 
-Sort tasks by rollover arrow count (most arrows first). This surfaces the stickiest items at the top.
+```markdown
+### 🔥 #today items (rolled from yesterday)
+
+- [ ] Task with arrows ➡️➡️➡️ #today [[Dailies/2026-05-11|2026-05-11]]
+- [ ] Another task ➡️➡️ #today [[Dailies/2026-05-12|2026-05-12]]
+
+### 📥 Moved Open Tasks
+
+- [ ] Regular open task [[Dailies/2026-05-14|2026-05-14]]
+- [ ] Another one #followup [[Dailies/2026-05-12|2026-05-12]]
+```
+
+The `🔥` section contains only `#today`-tagged items, sorted by arrow count descending. The `📥` section contains everything else, sorted by source date (oldest first).
+
+If there are no `#today` items, omit the `🔥` section entirely.
 
 **Rollover escalation thresholds:**
 - 2+ arrows: mention these items need attention when presenting to the user
@@ -68,7 +82,7 @@ Sort tasks by rollover arrow count (most arrows first). This surfaces the sticki
 
 For each source daily note:
 
-1. **Remove standalone open tasks** entirely (they now live on today's daily).
+1. **Mark standalone open tasks as forwarded:** Change `- [ ]` to `- [>]` in the source file. This preserves the task text as a historical record while signaling it's been moved forward.
 2. **Convert nested meeting-note tasks** from `- [ ]` to plain `- ` (remove the checkbox). This preserves the meeting context while preventing duplicate task appearances in Obsidian's task queries.
 3. **Keep completed tasks** (`- [x]`) in place. They're part of the historical record.
 4. **Keep the Priority Focus section** and any DataviewJS blocks. They're part of that day's record.
@@ -82,29 +96,39 @@ After all moves:
 
 ## Rules
 
-- **MOVE, not copy.** Tasks must be removed from source after adding to target. No duplicates.
+- **MOVE, not copy.** Tasks must be marked as forwarded (`[>]`) in source after adding to target. No duplicates.
 - **One arrow per rollover.** Only add ➡️ when moving a `#today` task forward. Do not add arrows in-place without moving.
 - **Preserve original source dates.** The `[[Dailies/...]]` suffix should always point to where the task was FIRST created, not the last daily it sat on.
 - **Never modify completed tasks.** `- [x]` items stay where they are.
 - **Never move tasks from today's own daily.** Only process dailies with dates strictly before today.
-- **Idempotent.** Running this twice on the same day should not create duplicates or add extra arrows.
+- **Idempotent.** Running this twice on the same day should not create duplicates or add extra arrows. Tasks already marked `[>]` are skipped.
 
 ## Example
 
 **Before (2026-05-12.md):**
 ```markdown
-- [ ] ➡️ #today post update about ticket cleanup
-- [ ] #followup Send summary to Rohan
+- [ ] ➡️ #today post update about ticket cleanup [[Dailies/2026-05-11|2026-05-11]]
+- [ ] #followup Send summary to Sam
 - [ ] Check on issue 4661 #followup [[Dailies/2026-04-20|2026-04-20]]
 ```
 
 **After moving to 2026-05-13.md:**
 ```markdown
+### 🔥 #today items (rolled from yesterday)
+
+- [ ] ➡️➡️ #today post update about ticket cleanup [[Dailies/2026-05-11|2026-05-11]]
+
 ### 📥 Moved Open Tasks
-- [ ] ➡️➡️ #today post update about ticket cleanup [[Dailies/2026-05-12|2026-05-12]]
-- [ ] #followup Send summary to Rohan [[Dailies/2026-05-12|2026-05-12]]
+
+- [ ] #followup Send summary to Sam [[Dailies/2026-05-12|2026-05-12]]
 - [ ] Check on issue 4661 #followup [[Dailies/2026-04-20|2026-04-20]]
 ```
 
 **2026-05-12.md after cleanup:**
-Open tasks removed. Completed tasks and meeting notes preserved.
+```markdown
+- [>] ➡️ #today post update about ticket cleanup [[Dailies/2026-05-11|2026-05-11]]
+- [>] #followup Send summary to Sam
+- [>] Check on issue 4661 #followup [[Dailies/2026-04-20|2026-04-20]]
+```
+
+Open tasks marked as forwarded. Completed tasks and meeting notes preserved.

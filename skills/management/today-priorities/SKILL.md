@@ -87,6 +87,9 @@ This DataviewJS query surfaces all open `#today` items across the vault, sorted 
 - The DataviewJS query in the daily note is the live view
 - When a task is completed, the user checks it off normally
 - Stale `#today` tags (from previous days) are handled by the `task-rollover` skill
+- Only add `➡️` arrows when the user **confirms** keeping the item for another day (not automatically)
+- Place `➡️` markers before the `#today` tag for readability
+- When removing `#today`, also remove all `➡️` markers
 
 ## Stale #today cleanup
 

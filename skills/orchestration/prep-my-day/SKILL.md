@@ -44,7 +44,7 @@ Orchestrate a full daily prep by chaining atomic skills in sequence. Reads today
 Invoke the `task-rollover` skill:
 1. Scan all dailies before today for open tasks
 2. Move them to today's daily (with arrows and date suffixes)
-3. Remove from source dailies
+3. Mark source tasks as forwarded (`[>]`)
 4. Report any escalation-level items (3+ arrows)
 
 ### Phase 3: 1:1 prep (sequential, with stops)
@@ -57,7 +57,25 @@ For each person:
 3. Present summary and ask before moving on:
    > Done with [Name]. Anything to add or adjust before I move to [Next]?
 
-### Phase 4: Today's priorities
+### Phase 4: Scan discussion sources
+
+If the team config has `discussion_sources`, check each for recent posts the user should know about.
+
+1. Fetch discussions created or updated in the last 2-3 business days
+2. Filter for relevance:
+   - Announcements, policy changes, or pinned posts
+   - Posts from related leadership or partner teams
+   - Posts with high engagement (many comments/reactions)
+   - Topics relevant to the team's domain
+3. Surface relevant posts as `#today` tasks on today's daily:
+   ```markdown
+   - [ ] Read: [Discussion title](url) — 1-line summary of why it's relevant #today
+   ```
+4. Skip: routine posts, unrelated team announcements, recurring meeting notes
+
+Place in the `📥 Moved Open Tasks` section or a dedicated `📣 Discussions` section if there are multiple items.
+
+### Phase 5: Today's priorities
 
 Invoke the `today-priorities` skill:
 1. Scan vault for high-priority open items
@@ -66,7 +84,7 @@ Invoke the `today-priorities` skill:
 4. Write Priority Focus section to today's daily
 5. Tag confirmed items with `#today`
 
-### Phase 5: Summary
+### Phase 6: Summary
 
 After all phases:
 > Day prepped:
