@@ -6,7 +6,15 @@ These skills are composable, generic, and contain no personal or organizational 
 
 ## Installation
 
-### Option 1: Clone and symlink (recommended)
+### Option 1: Ask Copilot to install it
+
+Already running Copilot CLI? Just ask:
+
+> install skills from philpalmieri/engineering-manager-skills
+
+Copilot will clone the repo and symlink all skills into `~/.copilot/skills/` for you.
+
+### Option 2: Clone and symlink
 
 ```bash
 gh repo clone philpalmieri/engineering-manager-skills ~/Dev/engineering-manager-skills
@@ -17,7 +25,7 @@ for skill in ~/Dev/engineering-manager-skills/skills/*/*; do
 done
 ```
 
-### Option 2: Install individual skills
+### Option 3: Install individual skills
 
 ```bash
 # Clone the repo, then copy just the skills you want
@@ -25,7 +33,7 @@ cp -r skills/management/direct-report-prep ~/.copilot/skills/direct-report-prep
 cp -r skills/orchestration/prep-my-day ~/.copilot/skills/prep-my-day
 ```
 
-### Option 3: Use as a repo-level skillset
+### Option 4: Use as a repo-level skillset
 
 The repo includes a `.copilot/skills` symlink that points to `../skills`. If you clone this repo into your workspace, Copilot CLI will load the skills automatically when you work in that directory.
 
