@@ -63,13 +63,13 @@ For each month, check:
 ```
 Sync plan:
   ✅ 2025-04 through 2026-03: complete (all members, all files)
-  ⚠️ 2026-04: missing piceri-issues.json (re-fetch needed)
+  ⚠️ 2026-04: missing carol-issues.json (re-fetch needed)
   🔄 2026-05: stale (last fetch: May 12, now May 19)
-  🆕 New member "piceri" (joined 2025-12): backfill 2025-12 through 2026-03
+  🆕 New member "carol" (joined 2025-12): backfill 2025-12 through 2026-03
 
 Actions:
   1. Fetch 2026-05 for all members (current month refresh)
-  2. Fetch 2026-04 piceri issues (gap fill)
+  2. Fetch 2026-04 carol issues (gap fill)
   3. Enrich 2026-05 PRs (after fetch)
 ```
 
@@ -120,7 +120,7 @@ Update a sync metadata file at `data/.sync-status.json`:
 
 Fetched:
   2026-05: 7 members × 3 types = 21 files updated
-  2026-04: 1 gap filled (piceri-issues.json)
+  2026-04: 1 gap filled (carol-issues.json)
 
 Enriched:
   12 new PRs enriched (2026-05)
