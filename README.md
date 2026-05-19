@@ -4,6 +4,79 @@ A collection of reusable [Copilot CLI skills](https://docs.github.com/en/copilot
 
 These skills are composable, generic, and contain no personal or organizational data. They assume you bring your own vault, your own team roster, and your own GitHub access.
 
+## What's Included
+
+28 skills across 6 categories. Each category has its own README with detailed documentation, prerequisites, and usage examples.
+
+### [Obsidian Skills](skills/obsidian/) (`skills/obsidian/`)
+Atomic vault operations: task movement, daily notes, people file management.
+
+| Skill | Description |
+|-------|-------------|
+| `task-rollover` | Move open tasks from previous dailies to today (mark source as forwarded) |
+| `daily-note` | *(Planned)* Create and structure today's daily note |
+| `people-file` | *(Planned)* Manage Person files and entries |
+| `vault-search` | *(Planned)* Search vault for tagged items and open tasks |
+
+### [GitHub Skills](skills/github/) (`skills/github/`)
+Data pipeline: fetch, enrich, and sync team activity from GitHub.
+
+| Skill | Description |
+|-------|-------------|
+| `team-activity` | Fetch PRs, reviews, and issues for team members |
+| `enrich-prs` | Fetch per-PR review detail (rounds, dismissals, reviewer actions) |
+| `team-data-sync` | Smart sync: detect stale/missing data, fetch delta, enrich new PRs |
+| `sprint-status` | Query project boards for sprint progress and health |
+| `sprint-management` | Automate sprint lifecycle (start, end, rollover) |
+| `oncall-review` | Assess on-call shift quality from issue engagement |
+| `epic-cleanup` | Audit active epics for ownership gaps and closure candidates |
+| `epic-overview` | Grouped overview of all active epics by strategic objective |
+
+### [Management Skills](skills/management/) (`skills/management/`)
+Day-to-day EM workflows: 1:1 prep, status reporting, hiring, prioritization.
+
+| Skill | Description |
+|-------|-------------|
+| `direct-report-prep` | 1:1 prep for direct reports (activity + coaching + follow-ups) |
+| `peer-prep` | 1:1 prep for peers and cross-functional partners |
+| `weekly-snippet` | Generate weekly status updates from vault + GitHub + sprint data |
+| `team-analysis` | Team activity reports over configurable date ranges |
+| `today-priorities` | Scan vault for high-priority items, tag with #today system |
+| `project-status` | Weekly project status report from actual GitHub signals |
+| `interview-prep` | Generate resume-specific behavioral interview scripts |
+| `interview-analysis` | Clean up raw interview notes into structured summaries |
+
+### [Technical Skills](skills/technical/) (`skills/technical/`)
+Research and documentation for technical projects and initiatives.
+
+| Skill | Description |
+|-------|-------------|
+| `product-brief` | Generate a product summary for stakeholders |
+| `technical-deep-dive` | Codebase analysis and architecture review |
+| `initiative-breakdown` | Deep-dive breakdown of a GitHub initiative or epic |
+
+### [Metrics Skills](skills/metrics/) (`skills/metrics/`)
+Data-driven team health: collaboration patterns, velocity, talent assessment.
+
+| Skill | Description |
+|-------|-------------|
+| `review-network` | Who reviews whom: network density, reciprocity, silo detection |
+| `review-cycles` | PR feedback rounds before merge, per person and trending |
+| `project-people-map` | Project ↔ people heatmap, bus factor, silo alerts |
+| `contribution-velocity` | Time-to-merge, throughput, review responsiveness |
+| `review-cards` | Quarterly grade cards per person (level-adjusted) |
+| `nine-box` | 9-box talent grid (performance vs growth trajectory) |
+| `team-health-report` | Orchestration: runs all metrics, produces unified dashboard |
+
+### [Orchestration Skills](skills/orchestration/) (`skills/orchestration/`)
+End-to-end workflows that chain multiple skills together.
+
+| Skill | Description |
+|-------|-------------|
+| `prep-my-day` | Full day prep: task rollover, 1:1 prep, discussion scan, priorities |
+
+---
+
 ## Getting Started
 
 ### 1. Install the skills
@@ -95,77 +168,6 @@ The repo includes a `.copilot/skills` symlink. Clone it into your workspace and 
 gh repo clone philpalmieri/engineering-manager-skills
 cd engineering-manager-skills
 ```
-
-## Skills Catalog
-
-28 skills across 6 categories. Each category has its own README with detailed documentation, prerequisites, and usage examples.
-
-### [Obsidian Skills](skills/obsidian/) (`skills/obsidian/`)
-Atomic vault operations: task movement, daily notes, people file management.
-
-| Skill | Description |
-|-------|-------------|
-| `task-rollover` | Move open tasks from previous dailies to today (mark source as forwarded) |
-| `daily-note` | *(Planned)* Create and structure today's daily note |
-| `people-file` | *(Planned)* Manage Person files and entries |
-| `vault-search` | *(Planned)* Search vault for tagged items and open tasks |
-
-### [GitHub Skills](skills/github/) (`skills/github/`)
-Data pipeline: fetch, enrich, and sync team activity from GitHub.
-
-| Skill | Description |
-|-------|-------------|
-| `team-activity` | Fetch PRs, reviews, and issues for team members |
-| `enrich-prs` | Fetch per-PR review detail (rounds, dismissals, reviewer actions) |
-| `team-data-sync` | Smart sync: detect stale/missing data, fetch delta, enrich new PRs |
-| `sprint-status` | Query project boards for sprint progress and health |
-| `sprint-management` | Automate sprint lifecycle (start, end, rollover) |
-| `oncall-review` | Assess on-call shift quality from issue engagement |
-| `epic-cleanup` | Audit active epics for ownership gaps and closure candidates |
-| `epic-overview` | Grouped overview of all active epics by strategic objective |
-
-### [Management Skills](skills/management/) (`skills/management/`)
-Day-to-day EM workflows: 1:1 prep, status reporting, hiring, prioritization.
-
-| Skill | Description |
-|-------|-------------|
-| `direct-report-prep` | 1:1 prep for direct reports (activity + coaching + follow-ups) |
-| `peer-prep` | 1:1 prep for peers and cross-functional partners |
-| `weekly-snippet` | Generate weekly status updates from vault + GitHub + sprint data |
-| `team-analysis` | Team activity reports over configurable date ranges |
-| `today-priorities` | Scan vault for high-priority items, tag with #today system |
-| `project-status` | Weekly project status report from actual GitHub signals |
-| `interview-prep` | Generate resume-specific behavioral interview scripts |
-| `interview-analysis` | Clean up raw interview notes into structured summaries |
-
-### [Technical Skills](skills/technical/) (`skills/technical/`)
-Research and documentation for technical projects and initiatives.
-
-| Skill | Description |
-|-------|-------------|
-| `product-brief` | Generate a product summary for stakeholders |
-| `technical-deep-dive` | Codebase analysis and architecture review |
-| `initiative-breakdown` | Deep-dive breakdown of a GitHub initiative or epic |
-
-### [Metrics Skills](skills/metrics/) (`skills/metrics/`)
-Data-driven team health: collaboration patterns, velocity, talent assessment.
-
-| Skill | Description |
-|-------|-------------|
-| `review-network` | Who reviews whom: network density, reciprocity, silo detection |
-| `review-cycles` | PR feedback rounds before merge, per person and trending |
-| `project-people-map` | Project ↔ people heatmap, bus factor, silo alerts |
-| `contribution-velocity` | Time-to-merge, throughput, review responsiveness |
-| `review-cards` | Quarterly grade cards per person (level-adjusted) |
-| `nine-box` | 9-box talent grid (performance vs growth trajectory) |
-| `team-health-report` | Orchestration: runs all metrics, produces unified dashboard |
-
-### [Orchestration Skills](skills/orchestration/) (`skills/orchestration/`)
-End-to-end workflows that chain multiple skills together.
-
-| Skill | Description |
-|-------|-------------|
-| `prep-my-day` | Full day prep: task rollover, 1:1 prep, discussion scan, priorities |
 
 ## Configuration
 
