@@ -21,6 +21,17 @@ You talk to Copilot like you'd talk to a chief of staff:
 
 Behind each prompt is a skill that knows where to look, what to fetch, and how to format the output. Skills pull from GitHub (PRs, reviews, issues, sprints), your Obsidian vault (daily notes, people files, open tasks), and a local `team.json` config. No new apps, no dashboards to check, no manual data entry. Just conversation.
 
+> [!IMPORTANT]
+> **This is signal, not the whole picture.**
+>
+> Everything here automates data collection you'd otherwise do manually: PR counts, review patterns, sprint progress, open tasks. It's useful. But it's one signal among many.
+>
+> Code activity doesn't capture mentoring conversations, design work, cross-team coordination, oncall heroics, or the context behind why someone's PR count dropped. These tools aggregate raw data. They have no concept of nuance, personal circumstances, or what's happening outside of GitHub.
+>
+> Use this to *inform* your judgment, not replace it. Pair it with the things that actually make you a good manager: paying attention, asking questions, and knowing your people.
+>
+> And because it's AI doing the analysis: **trust but verify. Always.**
+
 ## What's Included
 
 28 skills across 6 categories. Each category has its own README with detailed documentation, prerequisites, and usage examples.
