@@ -10,6 +10,7 @@ description: |-
 
     Use when asked to break down, summarize, or analyze an initiative, epic, or
     large body of tracked work on GitHub.
+license: MIT
 ---
 
 # Initiative Breakdown Skill

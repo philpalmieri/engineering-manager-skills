@@ -6,6 +6,7 @@ description: |-
   contribution velocity, review cards, and 9-box into a single comprehensive
   report with period-over-period comparison. Use when asked to 'run team health',
   'full metrics report', 'quarterly team assessment', or 'team dashboard'.
+license: MIT
 ---
 
 # Team Health Report (Orchestration)

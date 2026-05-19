@@ -5,6 +5,7 @@ description: |-
   approvals, change requests, and per-reviewer actions. Produces enrichment JSON
   files used by metrics skills for quality and cycle analysis. Use when asked to
   'enrich PRs', 'fetch review details', or as part of a data sync.
+license: MIT
 ---
 
 # PR Enrichment

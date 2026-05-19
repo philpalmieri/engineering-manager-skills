@@ -4,6 +4,7 @@ description: |-
   Fetch GitHub activity (PRs, reviews, issues) for all team members for a given
   time period. Stores results as JSON files organized by month. Use when asked to
   fetch team data, or as a dependency for analysis and snippet skills.
+license: MIT
 ---
 
 # Team Activity Fetch

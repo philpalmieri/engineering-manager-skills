@@ -5,6 +5,7 @@ description: |-
   what months are missing or stale, fetches only the delta, and enriches new PRs.
   Use when asked to 'sync data', 'get data up to date', 'refresh team data',
   or before running any metrics/analysis skill.
+license: MIT
 ---
 
 # Team Data Sync

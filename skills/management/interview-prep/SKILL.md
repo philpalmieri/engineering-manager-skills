@@ -5,6 +5,7 @@ description: |-
   an interview rubric/template. Selects questions targeting the candidate's specific
   experience, builds resume-specific follow-ups, and explains question selection rationale.
   Use when preparing for a behavioral or values-based interview.
+license: MIT
 ---
 
 # Interview Prep

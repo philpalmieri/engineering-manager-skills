@@ -5,6 +5,7 @@ description: |-
   Produces an actionable checklist: assign DRIs, close completed/dead epics,
   and make decisions on ambiguous work. Organized by person then by action type.
   Default output is conversational; optionally save to vault or file.
+license: MIT
 ---
 
 # Epic Cleanup

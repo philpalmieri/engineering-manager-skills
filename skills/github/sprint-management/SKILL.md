@@ -4,6 +4,7 @@ description: |-
   Automate sprint lifecycle: start a new sprint (create iteration, roll over incomplete
   items), end a sprint (snapshot results, capture metrics), and manage the transition
   between sprints. Use at sprint boundaries or when setting up a new iteration.
+license: MIT
 ---
 
 # Sprint Management

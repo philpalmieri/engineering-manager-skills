@@ -4,6 +4,7 @@ description: |-
   Move open tasks from previous daily notes to today's daily note in an Obsidian vault.
   Handles rollover arrows for recurring items, source date tracking, and cleanup of
   source files. Use when prepping today's daily note or when asked to roll tasks forward.
+license: MIT
 ---
 
 # Task Rollover

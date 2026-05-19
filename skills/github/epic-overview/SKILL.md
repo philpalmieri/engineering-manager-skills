@@ -5,6 +5,7 @@ description: |-
   organized by strategic objective or project area. Shows what each initiative is,
   which epics roll up to it, who owns them, progress, and flags unassigned or
   stale work. Default output is conversational; optionally save to vault or file.
+license: MIT
 ---
 
 # Epic Overview

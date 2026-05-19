@@ -4,6 +4,7 @@ description: |-
   Analyze current sprint health by examining sprint goals, issue status, PR readiness,
   and recent comments for risks and blockers. Produces a goal-oriented sprint health
   report with confidence assessments. Use during check-ins, refinement, or async updates.
+license: MIT
 ---
 
 # Sprint Status

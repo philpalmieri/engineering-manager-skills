@@ -5,6 +5,7 @@ description: |-
   vs level expectations) against Growth (trajectory and scope expansion). Uses
   data-driven metrics rather than subjective placement. Use when asked about
   talent mapping, 9-box, performance vs potential, or team calibration.
+license: MIT
 ---
 
 # 9-Box Talent Assessment

@@ -5,6 +5,7 @@ description: |-
   and architecture. Covers how things work today, what's done, what's remaining, risk
   assessment, and sprint-level sequencing. Use for engineering planning, architecture
   reviews, or onboarding engineers to a complex initiative.
+license: MIT
 ---
 
 # Technical Deep Dive

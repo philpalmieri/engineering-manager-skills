@@ -5,6 +5,7 @@ description: |-
   1:1 prep for each person on the schedule, and priority focus. Reads today's daily note
   schedule and works through each step sequentially. Use when asked to prep today or
   set up the day.
+license: MIT
 ---
 
 # Prep My Day

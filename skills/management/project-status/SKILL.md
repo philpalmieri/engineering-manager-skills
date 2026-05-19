@@ -5,6 +5,7 @@ description: |-
   your team owns. Infers status from actual signals (PRs, issue closures, comments,
   board movement) rather than requiring manual DRI updates. Surfaces wins, risks,
   stale projects, and the week ahead. Best run Monday mornings.
+license: MIT
 ---
 
 # Project Status Report

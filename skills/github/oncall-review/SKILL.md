@@ -4,6 +4,7 @@ description: |-
   Score the quality of an on-call or first-responder shift based on issue completeness,
   handoff quality, and engagement signals. Use when reviewing a completed on-call shift
   or generating team metrics.
+license: MIT
 ---
 
 # On-Call Quality Review

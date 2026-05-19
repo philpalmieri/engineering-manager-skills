@@ -5,6 +5,7 @@ description: |-
   Surfaces who consistently needs many iterations vs ships cleanly, and whether
   individuals are improving. Uses enrichment data for accurate round counts.
   Use when asked about review quality, iteration patterns, or PR friction.
+license: MIT
 ---
 
 # Review Cycles Analysis

@@ -5,6 +5,7 @@ description: |-
   bus factor, and visualize team engagement distribution. Shows project-level
   activity concentration and surfaces where only one person works.
   Use when asked about silos, bus factor, project coverage, or team distribution.
+license: MIT
 ---
 
 # Project-People Activity Map

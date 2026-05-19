@@ -5,6 +5,7 @@ description: |-
   their team.json configuration file with team roster, org settings, vault path,
   and project tracking config. Run this first after installing the skills.
   Use when asked to 'set up', 'configure', or 'initialize' the manager skills.
+license: MIT
 ---
 
 # Setup Wizard

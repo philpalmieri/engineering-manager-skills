@@ -4,6 +4,7 @@ description: |-
   Prepare partnership-oriented 1:1 talking points for a peer, manager, or cross-functional
   collaborator. Focuses on shared alignment, open commitments, and strategic topics.
   Use when prepping for a 1:1 with someone you do NOT manage.
+license: MIT
 ---
 
 # Peer / Non-Direct 1:1 Prep

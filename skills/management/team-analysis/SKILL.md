@@ -4,6 +4,7 @@ description: |-
   Generate a team activity report for a date range. Analyzes PR volume, review patterns,
   project distribution, and individual contributions. Use for monthly reports, quarterly
   reviews, or ad-hoc team health checks.
+license: MIT
 ---
 
 # Team Analysis

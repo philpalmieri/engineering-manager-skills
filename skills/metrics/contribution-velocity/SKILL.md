@@ -5,6 +5,7 @@ description: |-
   team-wide. Shows delivery speed trends and identifies bottlenecks in the
   review-to-merge pipeline. Use when asked about velocity, merge times,
   throughput, or delivery speed.
+license: MIT
 ---
 
 # Contribution Velocity

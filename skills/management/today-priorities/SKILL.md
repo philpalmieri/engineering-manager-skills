@@ -4,6 +4,7 @@ description: |-
   Scan the Obsidian vault for high-priority open items and organize them into today's
   focus list. Handles priority markers, overdue items, stale carry-overs, and the
   #today tagging system. Use when asked about today's priorities or focus.
+license: MIT
 ---
 
 # Today's Priorities

@@ -5,6 +5,7 @@ description: |-
   for all team members, cross-references vault context and last week's snippet, and
   produces a structured update with wins, upcoming work, and strategic commentary.
   Use when asked to prep or write a weekly snippet.
+license: MIT
 ---
 
 # Weekly Snippet

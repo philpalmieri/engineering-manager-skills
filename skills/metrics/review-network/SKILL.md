@@ -5,6 +5,7 @@ description: |-
   network density, and time-series comparison. Surfaces siloed review patterns
   and shows improvement toward distributed collaboration. Use when asked about
   review dynamics, collaboration patterns, or team connectivity.
+license: MIT
 ---
 
 # Review Network Analysis

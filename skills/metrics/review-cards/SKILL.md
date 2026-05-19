@@ -5,6 +5,7 @@ description: |-
   output, velocity, collaboration, quality, breadth, review depth, responsiveness,
   and mentorship. Grades are level-adjusted (expectations scale with seniority).
   Use when asked for review cards, quarterly grades, or individual performance cards.
+license: MIT
 ---
 
 # Engineer Review Cards

@@ -5,6 +5,7 @@ description: |-
   Covers the problem, solution, complexity, user value, what's shipped, what's in progress,
   and what needs product attention. Use when ramping up a PM, presenting to leadership,
   or creating a shareable project overview.
+license: MIT
 ---
 
 # Product Brief

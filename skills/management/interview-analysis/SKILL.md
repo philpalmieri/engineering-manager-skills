@@ -5,6 +5,7 @@ description: |-
   assessments, recommendation, and self-coaching. Takes raw notes and a scoring
   template, produces a polished write-up preserving the original notes below.
   Use after conducting a behavioral interview.
+license: MIT
 ---
 
 # Interview Analysis

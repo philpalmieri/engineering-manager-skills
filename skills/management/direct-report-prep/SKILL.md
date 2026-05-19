@@ -4,6 +4,7 @@ description: |-
   Prepare coaching-oriented 1:1 talking points for a direct report. Gathers GitHub
   activity, vault context, and open follow-ups to build structured prep notes.
   Use when prepping for a 1:1 with someone you manage.
+license: MIT
 ---
 
 # Direct Report 1:1 Prep
