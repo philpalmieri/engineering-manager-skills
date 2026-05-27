@@ -95,6 +95,7 @@ Data-driven team health: collaboration patterns, velocity, talent assessment.
 | [`review-cards`](skills/metrics/review-cards/SKILL.md) | Quarterly grade cards per person (level-adjusted) |
 | [`nine-box`](skills/metrics/nine-box/SKILL.md) | 9-box talent grid (performance vs growth trajectory) |
 | [`team-health-report`](skills/metrics/team-health-report/SKILL.md) | Orchestration: runs all metrics, produces unified dashboard |
+| [`bus-factor`](skills/metrics/bus-factor/SKILL.md) | Single points of failure and coverage gaps (3+ month windows) |
 
 ### [Orchestration Skills](skills/orchestration/) (`skills/orchestration/`)
 End-to-end workflows that chain multiple skills together.
@@ -102,6 +103,7 @@ End-to-end workflows that chain multiple skills together.
 | Skill | Description |
 |-------|-------------|
 | [`prep-my-day`](skills/orchestration/prep-my-day/SKILL.md) | Full day prep: task rollover, 1:1 prep, discussion scan, priorities |
+| [`context-check`](skills/orchestration/context-check/SKILL.md) | Validate environment awareness and rebuild context when behavior drifts |
 
 ---
 
